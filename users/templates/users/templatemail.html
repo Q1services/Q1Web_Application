@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification Link</title>
+</head>
+<body>
+    {% if env == True %}
+    <h1> Click on the <a href="http://127.0.0.1:8000/email-verified/{{hash_val}}">'Verify' </a></h1>
+    {% else %}
+    <h1> Click on the <a href="https://q1services.herokuapp.com/email-verified/{{hash_val}}">'Verify' </a></h1>
+    {% endif %} 
+</body>
+</html>

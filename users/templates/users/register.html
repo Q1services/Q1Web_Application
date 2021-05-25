@@ -1,0 +1,40 @@
+{% extends "users/base.html" %} 
+
+{% load crispy_forms_tags %} 
+
+{% block title %} New Registration {% endblock %}
+
+{% block content %} 
+
+<div class="content-section">
+
+    <form method="POST">
+        {% csrf_token %} 
+
+        <fieldset class="form-group">
+            <legend class="border-button mb-4">Join Today</legend>
+            {% for field in registration_form %}
+                <p>
+                    {{field.label_tag}} <br>
+                    {{field}}<br>
+        
+                    {% if field.help_text %}
+                        <small style="color:grey;">{{field.help_text}}</small>
+                    {% endif %}
+        
+                    {% for error in field.errors %}
+                        <p style="color:red;">{{error}}</p>
+                    {% endfor %}
+                </p>
+            {% endfor %}
+        </fieldset>
+
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Sign Up</button>
+        </div>
+    </form>
+
+</div>
+
+
+{% endblock %}
